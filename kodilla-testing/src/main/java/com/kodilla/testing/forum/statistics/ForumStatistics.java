@@ -4,19 +4,22 @@ public class ForumStatistics {
     private int usersQuantity;
     private int postsQuantity;
     private int commentsQuantity;
-    private int postsQuantityPerUser;
-    private int commentsQuantityPerUser;
-    private int commentsQuantityPerPost;
+    private double postsQuantityPerUser;
+    private double commentsQuantityPerUser;
+    private double commentsQuantityPerPost;
     //Statistics statistics;
 
     public void calculateAdvStatistics(Statistics statistics){
         usersQuantity = statistics.usersNames().size();
         postsQuantity = statistics.postsCount();
         commentsQuantity = statistics.commentsCount();
-        postsQuantityPerUser = (int)Math.ceil(postsQuantity/usersQuantity);
-        commentsQuantityPerUser = (int)Math.ceil(commentsQuantity/usersQuantity);
-        commentsQuantityPerPost = (int)Math.ceil(commentsQuantity/postsQuantity);
-        //return null;
+        if(usersQuantity != 0) {
+            postsQuantityPerUser = postsQuantity / usersQuantity;
+            commentsQuantityPerUser = commentsQuantity/usersQuantity;
+        }
+        if(postsQuantity != 0) {
+            commentsQuantityPerPost = commentsQuantity / postsQuantity;
+        }
     }
 
     public void showStatistics(){
@@ -40,15 +43,15 @@ public class ForumStatistics {
         return commentsQuantity;
     }
 
-    public int getPostsQuantityPerUser() {
+    public double getPostsQuantityPerUser() {
         return postsQuantityPerUser;
     }
 
-    public int getCommentsQuantityPerUser() {
+    public double getCommentsQuantityPerUser() {
         return commentsQuantityPerUser;
     }
 
-    public int getCommentsQuantityPerPost() {
+    public double getCommentsQuantityPerPost() {
         return commentsQuantityPerPost;
     }
 }
