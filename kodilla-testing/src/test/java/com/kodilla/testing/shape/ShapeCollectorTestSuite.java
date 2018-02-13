@@ -28,23 +28,23 @@ public class ShapeCollectorTestSuite {
     public void testAddFigure() {
         //Given
         Shape circle = new Circle(2);
-        ShapeCollector figure1 = new ShapeCollector();
+        ShapeCollector figuresCollector = new ShapeCollector();
 
         //When
-        figure1.addFigure(circle);
+        figuresCollector.addFigure(circle);
 
         //Then
-        Assert.assertEquals(1,figure1.getShapesListQuantity());
+        Assert.assertEquals(1,figuresCollector.getShapesListQuantity());
     }
 
     @Test
     public void testRemoveFigureNotExisting() {
         //Given
         Shape circle = new Circle(2);
-        ShapeCollector figure1 = new ShapeCollector();
+        ShapeCollector figuresCollector = new ShapeCollector();
 
         //When
-        boolean result = figure1.removeFigure(circle);
+        boolean result = figuresCollector.removeFigure(circle);
 
         //Then
         Assert.assertFalse(result);
@@ -54,48 +54,27 @@ public class ShapeCollectorTestSuite {
     public void testRemoveFigure(){
         //Given
         Shape circle = new Circle(2);
-        ShapeCollector figure1 = new ShapeCollector();
+        ShapeCollector figuresCollector = new ShapeCollector();
 
         //When
-        boolean result = figure1.removeFigure(circle);
+        boolean result = figuresCollector.removeFigure(circle);
 
         //Then
         Assert.assertFalse(result);
-        Assert.assertEquals(0,figure1.getShapesListQuantity());
+        Assert.assertEquals(0,figuresCollector.getShapesListQuantity());
     }
 
     @Test
     public void testGetFigure(){
         //Given
         Shape circle = new Circle(2);
-        ShapeCollector figure1 = new ShapeCollector();
-        figure1.addFigure(circle);
+        ShapeCollector figuresCollector = new ShapeCollector();
+        figuresCollector.addFigure(circle);
 
         //When
-        Shape retrievedFigure = figure1.getFigure(0);
+        Shape retrievedFigure = figuresCollector.getFigure(0);
 
         //Then
         Assert.assertEquals(circle, retrievedFigure);
     }
-
-    @Test
-    public void testShowFigures(){
-        //Given
-        Shape circle = new Circle(2);
-        Shape square = new Square(4);
-        ShapeCollector figure1 = new ShapeCollector();
-        List<Shape> expectedList = new ArrayList<Shape>(){{
-            add(circle);
-            add(square);
-        }};
-        figure1.addFigure(circle);
-        figure1.addFigure(square);
-
-        //When
-        List<Shape> result = figure1.showFigures();
-
-        //Then
-        Assert.assertEquals(expectedList, result);
-    }
-
 }

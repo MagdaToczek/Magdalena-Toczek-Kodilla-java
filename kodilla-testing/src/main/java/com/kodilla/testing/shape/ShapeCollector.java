@@ -3,7 +3,6 @@ package com.kodilla.testing.shape;
 import java.util.ArrayList;
 
 public class ShapeCollector {
-    private Shape shape;
     private ArrayList<Shape> shapesList = new ArrayList<Shape>();
 
     public void addFigure(Shape shape){
@@ -13,8 +12,7 @@ public class ShapeCollector {
     public boolean removeFigure(Shape shape){
         boolean result = false;
         if (shapesList.contains(shape)){
-            shapesList.remove(shape);
-            result = true;
+            result = shapesList.remove(shape);
         }
         return result;
     }
@@ -27,8 +25,8 @@ public class ShapeCollector {
         return retrivedShape;
     }
 
-    public ArrayList<Shape> showFigures(){
-        return shapesList;
+    public void showFigures(){
+        for (Shape shapesListLoop : shapesList) System.out.println(shapesListLoop.getField());
     }
 
     public int getShapesListQuantity(){
