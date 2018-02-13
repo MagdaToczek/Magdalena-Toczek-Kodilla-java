@@ -16,10 +16,10 @@ public class ForumStatistics {
         if(usersQuantity != 0) {
             postsQuantityPerUser = postsQuantity / usersQuantity;
             commentsQuantityPerUser = commentsQuantity/usersQuantity;
-        }
+        } else {System.out.println("Error");}
         if(postsQuantity != 0) {
             commentsQuantityPerPost = commentsQuantity / postsQuantity;
-        }
+        } else {System.out.println("Error");}
     }
 
     public void showStatistics(){
