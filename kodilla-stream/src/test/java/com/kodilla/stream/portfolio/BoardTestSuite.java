@@ -162,21 +162,21 @@ public class BoardTestSuite {
         Assert.assertEquals(10, averageTimeOfDoingTask, 0);
     }
 
-//    @Test
-//    public void testAddTaskListAverageWorkingOnTaskAlternativeVersion() {
-//        //Given
-//        Board project = prepareTestData();
-//
-//        //When
-//        List<TaskList> inProgressTasks = new ArrayList<>();
-//        inProgressTasks.add(new TaskList("In progress"));
-//        long averageOfDays = project.getTaskLists().stream()
-//                .filter(inProgressTasks::contains)
-//                .flatMap(tl -> tl.getTasks().stream())
-//                .map(t -> LongStream.of(DAYS.between(t.getCreated(), LocalDate.now())))
-//                .average();
-//
-//        //Then
-//        Assert.assertEquals(10, averageOfDays, 0);
-//    }
+    @Test
+    public void testAddTaskListAverageWorkingOnTaskAlternativeVersion() {
+        //Given
+        Board project = prepareTestData();
+
+        //When
+        List<TaskList> inProgressTasks = new ArrayList<>();
+        inProgressTasks.add(new TaskList("In progress"));
+        OptionalDouble averageOfDays = project.getTaskLists().stream()
+                .filter(inProgressTasks::contains)
+                .flatMap(tl -> tl.getTasks().stream())
+                .mapToLong(t -> DAYS.between(t.getCreated(), LocalDate.now()))
+                .average();
+
+        //Then
+        Assert.assertEquals(10, averageOfDays.getAsDouble(), 0);
+    }
 }
