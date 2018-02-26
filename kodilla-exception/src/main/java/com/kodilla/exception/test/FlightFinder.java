@@ -13,14 +13,12 @@ public class FlightFinder {
         flightMap.put("HSK", false);
 
         if(flightMap.containsKey(flight.getArrivalAirport()) && flightMap.containsKey(flight.getDepartureAirport())) {
-            if(!flightMap.get(flight.getArrivalAirport())) {
-                System.out.println("You can't fly to " + flight.getArrivalAirport());
-            }else if(!flightMap.get(flight.getDepartureAirport())) {
-                System.out.println("You can't fly from " + flight.getDepartureAirport());
-            }else {
+            if(flightMap.get(flight.getArrivalAirport())) {
                 System.out.println("Your route was found:)");
+            }else {
+                throw new RouteNotFoundException("Airport do not exist! Put correct airport name");
             }
-        } else {
+        }else {
             throw new RouteNotFoundException("Airport do not exist! Put correct airport name");
         }
     }
