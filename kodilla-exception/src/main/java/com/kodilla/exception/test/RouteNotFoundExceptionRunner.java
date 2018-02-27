@@ -2,7 +2,7 @@ package com.kodilla.exception.test;
 
 public class RouteNotFoundExceptionRunner {
     public static void main(String[] args) {
-        Flight flight = new Flight("MUN", "BCN");
+        Flight flight = new Flight("GDA", "BCN");
         FlightFinder flightFinder = new FlightFinder();
 
         try {
