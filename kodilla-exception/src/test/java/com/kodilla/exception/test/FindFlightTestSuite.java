@@ -17,7 +17,7 @@ public class FindFlightTestSuite {
         try {
             flightFinder.findFlight(flight);
         }catch(RouteNotFoundException e) {
-            Assert.assertThat(e.getMessage(), is("Route is not found"));
+            Assert.fail("Exception not expected");
         }
     }
 
