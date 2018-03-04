@@ -1,12 +1,12 @@
 package com.kodilla.good.patterns.challenges.order;
 
-public class OrderRequest {
-    public User user;
-    public Product product;
-    public int quantity;
-    public String deliveryMethod;
+public final class OrderRequest {
+    private final User user;
+    private final Product product;
+    private final int quantity;
+    private final String deliveryMethod;
 
-    public OrderRequest(User user, Product product, int quantity, String deliveryMethod) {
+    public OrderRequest(final User user, final Product product, final int quantity, final String deliveryMethod) {
         this.user = user;
         this.product = product;
         this.quantity = quantity;
