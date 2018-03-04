@@ -7,7 +7,12 @@ public class ProductOrderService {
         this.shop = shop;
     }
 
-    public void order(OrderRequest orderRequest) {
-        boolean isOrdered = shop.process(orderRequest.getSupplier(), orderRequest.getProduct());
+    public ShopDto order(OrderRequest orderRequest) {
+        boolean isOrdered = shop.process(orderRequest.getSupplier(), orderRequest.getProduct(), orderRequest.getQuantity());
+        if(isOrdered) {
+            return new ShopDto(orderRequest.getSupplier(), true);
+        }else {
+            return new ShopDto(orderRequest.getSupplier(), false);
+        }
     }
 }

@@ -1,7 +1,5 @@
 package com.kodilla.good.patterns.challenges.shop;
 
-import com.kodilla.good.patterns.challenges.order.User;
-
 public class OrderRequest {
     private Supplier supplier;
     private Product product;

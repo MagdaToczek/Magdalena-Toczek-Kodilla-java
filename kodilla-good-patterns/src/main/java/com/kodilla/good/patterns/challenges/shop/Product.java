@@ -4,16 +4,16 @@ public class Product {
     private String name;
     private double priceInDollars;
 
-    public Product(String name, double priceInDolars) {
+    public Product(String name, double priceInDollars) {
         this.name = name;
-        this.priceInDollars = priceInDolars;
+        this.priceInDollars = priceInDollars;
     }
 
     public String getName() {
         return name;
     }
 
-    public double getPriceInDolars() {
+    public double getPriceInDollars() {
         return priceInDollars;
     }
 }
