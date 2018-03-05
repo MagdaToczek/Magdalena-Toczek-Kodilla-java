@@ -1,18 +1,18 @@
 package com.kodilla.good.patterns.challenges.shop;
 
-public class OrderRequest {
-    private Supplier supplier;
-    private Product product;
-    private int quantity;
+public final class OrderRequest {
+    private final String shopName;
+    private final Product product;
+    private final int quantity;
 
-    public OrderRequest(Supplier supplier, Product product, int quantity) {
-        this.supplier = supplier;
+    public OrderRequest(final String shopName, final Product product, final int quantity) {
+        this.shopName = shopName;
         this.product = product;
         this.quantity = quantity;
     }
 
-    public Supplier getSupplier() {
-        return supplier;
+    public String getShopName() {
+        return shopName;
     }
 
     public Product getProduct() {

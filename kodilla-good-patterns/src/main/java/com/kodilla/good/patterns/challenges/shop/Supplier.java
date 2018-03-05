@@ -1,11 +1,11 @@
 package com.kodilla.good.patterns.challenges.shop;
 
-public class Supplier {
-    private String name;
-    private String address;
-    private double margin;
+public final class Supplier {
+    private final String name;
+    private final String address;
+    private final double margin;
 
-    public Supplier(String name, String address, double margin) {
+    public Supplier(final String name, final String address, final double margin) {
         this.name = name;
         this.address = address;
         this.margin = margin;

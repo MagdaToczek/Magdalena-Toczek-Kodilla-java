@@ -1,16 +1,16 @@
 package com.kodilla.good.patterns.challenges.shop;
 
-public class ShopDto {
-    private Supplier supplier;
-    private boolean isOrdered;
+public final class ShopDto {
+    private final Shop shop;
+    private final boolean isOrdered;
 
-    public ShopDto(Supplier supplier, boolean isOrdered) {
-        this.supplier = supplier;
+    public ShopDto(final Shop shop, final boolean isOrdered) {
+        this.shop = shop;
         this.isOrdered = isOrdered;
     }
 
-    public Supplier getSupplier() {
-        return supplier;
+    public Shop getShop() {
+        return shop;
     }
 
     public boolean isOrdered() {
