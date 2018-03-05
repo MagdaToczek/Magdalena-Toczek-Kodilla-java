@@ -1,13 +1,13 @@
 package com.kodilla.good.patterns.challenges.order;
 
-public class User {
-    private String name;
-    private String surname;
-    private String address;
-    private String phoneNumber;
-    private String mail;
+public final class User {
+    private final String name;
+    private final String surname;
+    private final String address;
+    private final String phoneNumber;
+    private final String mail;
 
-    public User(String name, String surname, String address, String phoneNumber, String mail) {
+    public User(final String name, final String surname, final String address, final String phoneNumber, final String mail) {
         this.name = name;
         this.surname = surname;
         this.address = address;

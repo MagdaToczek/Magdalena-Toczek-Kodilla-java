@@ -1,19 +1,19 @@
 package com.kodilla.good.patterns.challenges.order;
 
-public class Product {
-    private String name;
-    private double priceInDolars;
+public final class Product {
+    private final String name;
+    private final double priceInDollars;
 
-    public Product(String name, double priceInDolars) {
+    public Product(final String name, final double priceInDollars) {
         this.name = name;
-        this.priceInDolars = priceInDolars;
+        this.priceInDollars = priceInDollars;
     }
 
     public String getName() {
         return name;
     }
 
-    public double getPriceInDolars() {
-        return priceInDolars;
+    public double getPriceInDollars() {
+        return priceInDollars;
     }
 }
