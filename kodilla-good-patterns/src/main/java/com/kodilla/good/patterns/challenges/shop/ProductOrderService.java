@@ -7,12 +7,14 @@ public class ProductOrderService {
     private Map<String, Shop> shopMap = new HashMap();
 
     public ShopDto order(OrderRequest orderRequest) {
-        boolean isOrdered = shopMap.get(orderRequest.getShopName()).process(orderRequest);
+        Shop shopName = shopMap.get(orderRequest.getShopName());
+        boolean isOrdered = shopName.process(orderRequest);
 
         if(isOrdered) {
-            return new ShopDto(shopMap.get(orderRequest.getShopName()), true);
+            return new ShopDto(shopName, true);
         }
-        return new ShopDto(shopMap.get(orderRequest.getShopName()), false);
+
+        return new ShopDto(shopName, false);
     }
 
     public void addShop(String shopName, Shop shop) {
