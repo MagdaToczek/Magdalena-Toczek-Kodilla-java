@@ -1,9 +1,6 @@
 package com.kodilla.good.patterns.challenges.flightCompany;
 
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public final class FlightsConnections {
     private final List<String> flightsFromGDN = new LinkedList(){{
@@ -35,5 +32,19 @@ public final class FlightsConnections {
 
     public Map<String, List<String>> getFlightsMap() {
         return flightsMap;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        FlightsConnections that = (FlightsConnections) o;
+        return Objects.equals(flightsMap, that.flightsMap);
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(flightsMap);
     }
 }
