@@ -32,8 +32,8 @@ public class FlightFinder {
         }
     }
 
-    public void findFlightsToAndThrough(String destinationAirport, String transferAirport) {
-        System.out.println("\nChecking flights to chosen city with transfer...");
+    public void findFlightsThrough(String transferAirport) {
+        System.out.println("\nChecking flights city through chosen city...");
 
         //List<String>
     }
