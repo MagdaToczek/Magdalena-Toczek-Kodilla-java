@@ -27,7 +27,7 @@ public class FlightFinder {
                     if (flightsConnections.getFlightsMap().get(destinationAirport) != null) {
                         for (String departureAirports : flightsConnections.getFlightsMap().get(destinationAirport)) {
                             if (!departureAirports.equals(transferAirport)) {
-                                System.out.println(departureAirports + " -> " + transferAirport + " -> " + destinationAirport);
+                                System.out.println(transferAirport + " -> " + destinationAirport + " -> " + departureAirports );
                             }
                         }
                     }
