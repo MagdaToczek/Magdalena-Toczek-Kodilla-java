@@ -1,8 +1,6 @@
 package com.kodilla.good.patterns.challenges.flightCompany;
 
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class FlightFinder {
@@ -19,20 +17,30 @@ public class FlightFinder {
                 .collect(Collectors.toList());
     }
 
-    public void findFlightsThrough(String transferAirport) {
+    public void findFlightsThrough(String departureAirport) {
         for (Map.Entry<String, List<String>> entry : flightsConnections.getFlightsMap().entrySet()) {
-            if (entry.getKey().equals(transferAirport)) {
+            if (entry.getKey().equals(departureAirport)) {
                 System.out.println(entry);
-                for (String destinationAirport : entry.getValue()) {
-                    if (flightsConnections.getFlightsMap().get(destinationAirport) != null) {
-                        for (String departureAirports : flightsConnections.getFlightsMap().get(destinationAirport)) {
-                            if (!departureAirports.equals(transferAirport)) {
-                                System.out.println(transferAirport + " -> " + destinationAirport + " -> " + departureAirports );
+                for (String transferAirport : entry.getValue()) {
+                    if (flightsConnections.getFlightsMap().containsKey(transferAirport)) {
+                        for (String destinationAirport : flightsConnections.getFlightsMap().get(transferAirport)) {
+                            if (!destinationAirport.equals(departureAirport)) {
+                                System.out.println(departureAirport + " -> " + transferAirport + " -> " + destinationAirport );
                             }
                         }
                     }
                 }
             }
         }
+
+        String result = flightsConnections.getFlightsMap().entrySet().stream()
+                .filter(e -> e.getKey().equals(departureAirport))
+                .collect(Collectors.toSet()).stream()
+                    .flatMap(e -> e.getValue().stream())
+                    .map(e -> flightsConnections.getFlightsMap().get(e))
+                    .flatMap(List::stream)
+                    .filter(v -> !v.equals(departureAirport))
+                    .collect(Collectors.joining("", departureAirport + " -> ", ""));
+        System.out.println(result);
     }
 }
