@@ -17,30 +17,27 @@ public class FlightFinder {
                 .collect(Collectors.toList());
     }
 
-    public void findFlightsThrough(String departureAirport) {
-        for (Map.Entry<String, List<String>> entry : flightsConnections.getFlightsMap().entrySet()) {
-            if (entry.getKey().equals(departureAirport)) {
-                System.out.println(entry);
-                for (String transferAirport : entry.getValue()) {
-                    if (flightsConnections.getFlightsMap().containsKey(transferAirport)) {
-                        for (String destinationAirport : flightsConnections.getFlightsMap().get(transferAirport)) {
-                            if (!destinationAirport.equals(departureAirport)) {
-                                System.out.println(departureAirport + " -> " + transferAirport + " -> " + destinationAirport );
-                            }
-                        }
-                    }
+    public void findFlightsThrough(String transferAirport) {
+        List<String> resultDestinationAirports = flightsConnections.getFlightsMap().entrySet().stream()
+                .filter(e -> e.getKey().equals(transferAirport))
+                .flatMap(e -> e.getValue().stream())
+                .collect(Collectors.toList());
+
+        System.out.println(resultDestinationAirports);
+
+        List<String> resultDepartureAirports = flightsConnections.getFlightsMap().entrySet().stream()
+                .filter(e -> e.getValue().contains(transferAirport))
+                .map(e -> e.getKey())
+                .collect(Collectors.toList());
+
+        System.out.println(resultDepartureAirports);
+
+        for (String elementIn : resultDepartureAirports) {
+            for (String elementOut : resultDestinationAirports) {
+                if (!elementIn.equals(elementOut)) {
+                    System.out.println(elementIn + " -> " + transferAirport + " -> " + elementOut);
                 }
             }
         }
-
-        String result = flightsConnections.getFlightsMap().entrySet().stream()
-                .filter(e -> e.getKey().equals(departureAirport))
-                .collect(Collectors.toSet()).stream()
-                    .flatMap(e -> e.getValue().stream())
-                    .map(e -> flightsConnections.getFlightsMap().get(e))
-                    .flatMap(List::stream)
-                    .filter(v -> !v.equals(departureAirport))
-                    .collect(Collectors.joining("", departureAirport + " -> ", ""));
-        System.out.println(result);
     }
 }

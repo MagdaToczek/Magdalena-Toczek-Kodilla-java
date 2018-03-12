@@ -6,6 +6,6 @@ public class Application {
 
         //System.out.println(flightFinder.findFlightsFrom("GDN"));
         //System.out.println(flightFinder.findFlightsTo("WRO"));
-        flightFinder.findFlightsThrough("KRK");
+        flightFinder.findFlightsThrough("WRO");
     }
 }
