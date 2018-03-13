@@ -27,4 +27,14 @@ public class FlightFinderTestSuite {
         //Then
         Assert.assertEquals(Arrays.asList("WRO", "KRK", "WAW"), resultList);
     }
+
+    @Test
+    public void findFlightsThroughTest() {
+        //Given
+        FlightFinder flightFinder = new FlightFinder();
+        //When
+        List<String> resultList = flightFinder.findFlightsThrough("KRK");
+        //Then
+        Assert.assertEquals(Arrays.asList("GDN -> KRK -> WRO", "WRO -> KRK -> GDN"), resultList);
+    }
 }

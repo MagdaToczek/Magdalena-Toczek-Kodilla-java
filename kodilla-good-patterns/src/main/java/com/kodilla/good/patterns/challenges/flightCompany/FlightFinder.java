@@ -17,27 +17,22 @@ public class FlightFinder {
                 .collect(Collectors.toList());
     }
 
-    public void findFlightsThrough(String transferAirport) {
-        List<String> resultDestinationAirports = flightsConnections.getFlightsMap().entrySet().stream()
-                .filter(e -> e.getKey().equals(transferAirport))
-                .flatMap(e -> e.getValue().stream())
-                .collect(Collectors.toList());
-
-        System.out.println(resultDestinationAirports);
-
-        List<String> resultDepartureAirports = flightsConnections.getFlightsMap().entrySet().stream()
+    public List<String> findFlightsThrough(String transferAirport) {
+        List<String> resultFlightsThrough = new ArrayList<>();
+        flightsConnections.getFlightsMap().entrySet().stream()
                 .filter(e -> e.getValue().contains(transferAirport))
-                .map(e -> e.getKey())
-                .collect(Collectors.toList());
+                .forEach(e -> {
+                    String departureAirport = e.getKey();
+                    e.getValue().stream()
+                            .filter(airport -> airport.equals(transferAirport))
+                            .forEach(airport -> flightsConnections.getFlightsMap()
+                                    .getOrDefault(transferAirport, Collections.emptyList())
+                                    .stream()
+                                    .filter(destinationAirport -> !destinationAirport.equals(departureAirport))
+                                    .forEach(destinationAirport -> resultFlightsThrough.add(departureAirport + " -> " + transferAirport + " -> " + destinationAirport))
+                            );
+                });
 
-        System.out.println(resultDepartureAirports);
-
-        for (String elementIn : resultDepartureAirports) {
-            for (String elementOut : resultDestinationAirports) {
-                if (!elementIn.equals(elementOut)) {
-                    System.out.println(elementIn + " -> " + transferAirport + " -> " + elementOut);
-                }
-            }
-        }
+        return resultFlightsThrough;
     }
 }
