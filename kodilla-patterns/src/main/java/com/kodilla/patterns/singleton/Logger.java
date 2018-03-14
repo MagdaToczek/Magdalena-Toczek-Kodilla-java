@@ -7,7 +7,7 @@ public class Logger {
     private Logger() {
     }
 
-    public static Logger getLoggerInstance() {
+    public static Logger getInstance() {
         if (loggerInstance == null) {
             synchronized (Logger.class) {
                 if (loggerInstance == null) {
