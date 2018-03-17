@@ -26,8 +26,7 @@ public class LibraryTestSuite {
         Library testLibrary = prepareLibraryForTests();
 
         //When
-        Library clonedLibrary = null;
-        clonedLibrary = testLibrary.shallowCopy();
+        Library clonedLibrary = testLibrary.shallowCopy();
         clonedLibrary.setName("Cloned Library with shallowCopy");
 
         testLibrary.getBooks().remove(book4);
@@ -44,8 +43,7 @@ public class LibraryTestSuite {
         Library testLibrary = prepareLibraryForTests();
 
         //When
-        Library deepClonedLibrary = null;
-        deepClonedLibrary = testLibrary.deepCopy();
+        Library deepClonedLibrary = testLibrary.deepCopy();
         deepClonedLibrary.setName("Cloned Library with deepCopy");
 
         library.getBooks().remove(book4);
