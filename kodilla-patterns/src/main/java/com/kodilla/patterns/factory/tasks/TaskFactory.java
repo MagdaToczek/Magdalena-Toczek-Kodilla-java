@@ -5,7 +5,7 @@ public class TaskFactory {
     public static final String PAINTING = "PAINTING";
     public static final String DRIVING = "DRIVING";
 
-    public final Task doTask(final String chosenTask) {
+    public final Task createTask(final String chosenTask) {
         switch (chosenTask) {
             case SHOPPING:
                 return new ShoppingTask("Shopping lingerie", "pijamas", 3);
@@ -14,7 +14,7 @@ public class TaskFactory {
             case DRIVING:
                 return new DrivingTask("Driving", "Florence", "Maserati");
             default:
-                    return null;
+                throw new IllegalArgumentException();
         }
     }
 }

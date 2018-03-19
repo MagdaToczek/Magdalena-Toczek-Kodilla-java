@@ -21,12 +21,31 @@ public class Bigmac {
         private int burgers;
         private String sauce;
         private final List<String> ingredients = new ArrayList<>();
+        private final List<String> kindsOfRolls = new ArrayList<String>(){{
+            add("plain");
+            add("with sesame");
+        }};
+        private final List<String> kindsOfSauce = new ArrayList<String>(){{
+            add("standard");
+            add("1000 islands");
+            add("barbecue");
+        }};
+        private final List<String> kindsOfIngredients = new ArrayList<String>(){{
+            add("lettuce");
+            add("onion");
+            add("bacon");
+            add("pickle");
+            add("chilli pepper");
+            add("mushrooms");
+            add("shrimps");
+            add("cheese");
+        }};
 
         public BigmacBuilder roll(String roll) {
-            if (roll.equals("plain") || roll.equals("with sesame")) {
+            if (kindsOfRolls.contains(roll)) {
                 this.roll = roll;
             } else {
-                throw new IllegalStateException("We don't have such kind of roll");
+                throw new IllegalArgumentException("We don't have such kind of roll");
             }
             return this;
         }
@@ -37,16 +56,16 @@ public class Bigmac {
         }
 
         public BigmacBuilder sauce(String sauce) {
-            if (sauce.equals("standard") || sauce.equals("1000 islands") || sauce.equals("barbecue")) {
+            if (kindsOfSauce.contains(sauce)) {
                 this.sauce = sauce;
             } else {
-                throw new IllegalStateException("We don't have such kind of sauce");
+                throw new IllegalArgumentException("We don't have such kind of sauce");
             }
             return this;
         }
 
         public BigmacBuilder ingredient(String ingredient) {
-            if (ingredient.equals("lettuce") || ingredient.equals("onion") || ingredient.equals("bacon") || ingredient.equals("pickle") || ingredient.equals("chilli pepper") || ingredient.equals("mushrooms") || ingredient.equals("shrimp") || ingredient.equals("cheese")) {
+            if (kindsOfIngredients.contains(ingredient)) {
                 ingredients.add(ingredient);
             }
             return this;

@@ -2,12 +2,12 @@ package com.kodilla.patterns.factory.tasks;
 
 import java.time.LocalTime;
 
-public class PaintingTask implements Task {
-    private String taskName;
-    private String color;
-    private String whatToPaint;
+public final class PaintingTask implements Task {
+    private final String taskName;
+    private final String color;
+    private final String whatToPaint;
 
-    public PaintingTask(String taskName, String color, String whatToPaint) {
+    public PaintingTask(final String taskName, final String color, final String whatToPaint) {
         this.taskName = taskName;
         this.color = color;
         this.whatToPaint = whatToPaint;
