@@ -14,7 +14,7 @@ public class TaskFactory {
             case DRIVING:
                 return new DrivingTask("Driving", "Florence", "Maserati");
             default:
-                throw new IllegalArgumentException();
+                throw new IllegalArgumentException("You have tried to create non-existing task");
         }
     }
 }

@@ -1,12 +1,10 @@
 package com.kodilla.patterns.factory.tasks;
 
-import java.time.LocalTime;
-
 public final class ShoppingTask implements Task {
     private final String taskName;
     private final String whatToBuy;
     private final double quantity;
-    private boolean isExecuted = false;
+    private boolean isExecuted;
 
     public ShoppingTask(final String taskName, final String whatToBuy, final double quantity) {
         this.taskName = taskName;
