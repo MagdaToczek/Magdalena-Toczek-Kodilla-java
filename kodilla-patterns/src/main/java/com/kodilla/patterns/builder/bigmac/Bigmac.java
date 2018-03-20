@@ -8,16 +8,16 @@ public class Bigmac {
     private final int burgers;
     private final String sauce;
     private final List<String> ingredients;
-    static final List<String> kindsOfRolls = new ArrayList<String>(){{
+    static final List<String> KINDS_OF_ROLLS = new ArrayList<String>(){{
         add("plain");
         add("with sesame");
     }};
-    static final List<String> kindsOfSauce = new ArrayList<String>(){{
+    static final List<String> KINDS_OF_SAUCE = new ArrayList<String>(){{
         add("standard");
         add("1000 islands");
         add("barbecue");
     }};
-    static final List<String> kindsOfIngredients = new ArrayList<String>(){{
+    static final List<String> KINDS_OF_INGREDIENTS = new ArrayList<String>(){{
         add("lettuce");
         add("onion");
         add("bacon");
@@ -43,7 +43,7 @@ public class Bigmac {
 
 
         public BigmacBuilder roll(String roll) {
-            if (kindsOfRolls.contains(roll)) {
+            if (KINDS_OF_ROLLS.contains(roll)) {
                 this.roll = roll;
             } else {
                 throw new IllegalArgumentException("We don't have such kind of roll");
@@ -57,7 +57,7 @@ public class Bigmac {
         }
 
         public BigmacBuilder sauce(String sauce) {
-            if (kindsOfSauce.contains(sauce)) {
+            if (KINDS_OF_SAUCE.contains(sauce)) {
                 this.sauce = sauce;
             } else {
                 throw new IllegalArgumentException("We don't have such kind of sauce");
@@ -66,7 +66,7 @@ public class Bigmac {
         }
 
         public BigmacBuilder ingredient(String ingredient) {
-            if (kindsOfIngredients.contains(ingredient)) {
+            if (KINDS_OF_INGREDIENTS.contains(ingredient)) {
                 ingredients.add(ingredient);
             }
             return this;
