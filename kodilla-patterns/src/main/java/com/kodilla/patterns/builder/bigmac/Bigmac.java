@@ -8,16 +8,16 @@ public class Bigmac {
     private final int burgers;
     private final String sauce;
     private final List<String> ingredients;
-    static final List<String> KINDS_OF_ROLLS = new ArrayList<String>(){{
+    static private final List<String> KINDS_OF_ROLLS = new ArrayList<String>(){{
         add("plain");
         add("with sesame");
     }};
-    static final List<String> KINDS_OF_SAUCE = new ArrayList<String>(){{
+    static private final List<String> KINDS_OF_SAUCE = new ArrayList<String>(){{
         add("standard");
         add("1000 islands");
         add("barbecue");
     }};
-    static final List<String> KINDS_OF_INGREDIENTS = new ArrayList<String>(){{
+    static private final List<String> KINDS_OF_INGREDIENTS = new ArrayList<String>(){{
         add("lettuce");
         add("onion");
         add("bacon");
