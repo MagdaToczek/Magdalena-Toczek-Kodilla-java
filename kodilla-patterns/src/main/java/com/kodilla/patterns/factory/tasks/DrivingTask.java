@@ -6,7 +6,7 @@ public final class DrivingTask implements Task {
     private final String taskName;
     private final String where;
     private final String using;
-    //private final boolean isExecuted;
+    private boolean isExecuted = false;
 
     public DrivingTask(final String taskName, final String where, final String using) {
         this.taskName = taskName;
@@ -15,8 +15,8 @@ public final class DrivingTask implements Task {
     }
 
     @Override
-    public String executeTask() {
-        return "I'm driving to " + where + " by my " + using;
+    public void executeTask() {
+        isExecuted = true;
     }
 
     @Override
@@ -26,9 +26,6 @@ public final class DrivingTask implements Task {
 
     @Override
     public boolean isTaskExecuted() {
-        if (LocalTime.now().getHour() % 2 == 0) {
-            return true;
-        }
-        return false;
+        return isExecuted;
     }
 }

@@ -14,8 +14,21 @@ public class TaskFactoryTestSuite {
 
         //Then
         Assert.assertEquals("Shopping lingerie", shoppingTask.getTaskName());
-        Assert.assertEquals("I'm buying 3.0 pijamas", shoppingTask.executeTask());
         Assert.assertFalse(shoppingTask.isTaskExecuted());
+    }
+
+    @Test
+    public void testExecutedShoppingTask() {
+        //Given
+        TaskFactory factory = new TaskFactory();
+
+        //When
+        Task shoppingTask = factory.createTask(TaskFactory.SHOPPING);
+        shoppingTask.executeTask();
+
+        //Then
+        Assert.assertEquals("Shopping lingerie", shoppingTask.getTaskName());
+        Assert.assertTrue(shoppingTask.isTaskExecuted());
     }
 
     @Test
@@ -28,8 +41,21 @@ public class TaskFactoryTestSuite {
 
         //Then
         Assert.assertEquals("Painting", paintingTask.getTaskName());
-        Assert.assertEquals("I'm painting wall in navy blue", paintingTask.executeTask());
         Assert.assertFalse(paintingTask.isTaskExecuted());
+    }
+
+    @Test
+    public void testExecutedPaintingTask() {
+        //Given
+        TaskFactory factory = new TaskFactory();
+
+        //When
+        Task paintingTask = factory.createTask(TaskFactory.PAINTING);
+        paintingTask.executeTask();
+
+        //Then
+        Assert.assertEquals("Painting", paintingTask.getTaskName());
+        Assert.assertTrue(paintingTask.isTaskExecuted());
     }
 
     @Test
@@ -42,7 +68,20 @@ public class TaskFactoryTestSuite {
 
         //Then
         Assert.assertEquals("Driving", drivingTask.getTaskName());
-        Assert.assertEquals("I'm driving to Florence by my Maserati", drivingTask.executeTask());
         Assert.assertFalse(drivingTask.isTaskExecuted());
+    }
+
+    @Test
+    public void testExecutedDrivingTask() {
+        //Given
+        TaskFactory factory = new TaskFactory();
+
+        //When
+        Task drivingTask = factory.createTask(TaskFactory.DRIVING);
+        drivingTask.executeTask();
+
+        //Then
+        Assert.assertEquals("Driving", drivingTask.getTaskName());
+        Assert.assertTrue(drivingTask.isTaskExecuted());
     }
 }

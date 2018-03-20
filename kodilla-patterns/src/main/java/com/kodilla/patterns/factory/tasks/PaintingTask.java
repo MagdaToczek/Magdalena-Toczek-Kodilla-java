@@ -6,6 +6,7 @@ public final class PaintingTask implements Task {
     private final String taskName;
     private final String color;
     private final String whatToPaint;
+    private boolean isExecuted = false;
 
     public PaintingTask(final String taskName, final String color, final String whatToPaint) {
         this.taskName = taskName;
@@ -14,8 +15,8 @@ public final class PaintingTask implements Task {
     }
 
     @Override
-    public String executeTask() {
-        return "I'm painting " + whatToPaint + " in " + color;
+    public void executeTask() {
+        isExecuted = true;
     }
 
     @Override
@@ -25,9 +26,6 @@ public final class PaintingTask implements Task {
 
     @Override
     public boolean isTaskExecuted() {
-        if (LocalTime.now().getHour() % 2 == 0) {
-            return true;
-        }
-        return false;
+        return isExecuted;
     }
 }

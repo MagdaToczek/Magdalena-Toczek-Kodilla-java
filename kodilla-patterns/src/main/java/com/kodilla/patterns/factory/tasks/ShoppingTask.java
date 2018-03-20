@@ -6,6 +6,7 @@ public final class ShoppingTask implements Task {
     private final String taskName;
     private final String whatToBuy;
     private final double quantity;
+    private boolean isExecuted = false;
 
     public ShoppingTask(final String taskName, final String whatToBuy, final double quantity) {
         this.taskName = taskName;
@@ -14,8 +15,8 @@ public final class ShoppingTask implements Task {
     }
 
     @Override
-    public String executeTask() {
-        return "I'm buying " + quantity + " " + whatToBuy;
+    public void executeTask() {
+        isExecuted = true;
     }
 
     @Override
@@ -25,9 +26,6 @@ public final class ShoppingTask implements Task {
 
     @Override
     public boolean isTaskExecuted() {
-        if (LocalTime.now().getHour() % 2 == 0) {
-            return true;
-        }
-        return false;
+        return isExecuted;
     }
 }
