@@ -24,7 +24,7 @@ public class BigmacTestSuite {
         Assert.assertEquals(4, howManyIngredients);
     }
 
-    @Test(expected = IllegalStateException.class)
+    @Test(expected = IllegalArgumentException.class)
     public void testBigmacBuilderWithWrongArgument() {
         //Given
         Bigmac bigmac = new Bigmac.BigmacBuilder()

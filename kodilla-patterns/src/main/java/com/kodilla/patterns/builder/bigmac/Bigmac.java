@@ -8,6 +8,25 @@ public class Bigmac {
     private final int burgers;
     private final String sauce;
     private final List<String> ingredients;
+    static final List<String> kindsOfRolls = new ArrayList<String>(){{
+        add("plain");
+        add("with sesame");
+    }};
+    static final List<String> kindsOfSauce = new ArrayList<String>(){{
+        add("standard");
+        add("1000 islands");
+        add("barbecue");
+    }};
+    static final List<String> kindsOfIngredients = new ArrayList<String>(){{
+        add("lettuce");
+        add("onion");
+        add("bacon");
+        add("pickle");
+        add("chilli pepper");
+        add("mushrooms");
+        add("shrimps");
+        add("cheese");
+    }};
 
     private Bigmac(final String roll, final int burgers, final String sauce, final List<String> ingredients) {
         this.roll = roll;
@@ -21,25 +40,7 @@ public class Bigmac {
         private int burgers;
         private String sauce;
         private final List<String> ingredients = new ArrayList<>();
-        private final List<String> kindsOfRolls = new ArrayList<String>(){{
-            add("plain");
-            add("with sesame");
-        }};
-        private final List<String> kindsOfSauce = new ArrayList<String>(){{
-            add("standard");
-            add("1000 islands");
-            add("barbecue");
-        }};
-        private final List<String> kindsOfIngredients = new ArrayList<String>(){{
-            add("lettuce");
-            add("onion");
-            add("bacon");
-            add("pickle");
-            add("chilli pepper");
-            add("mushrooms");
-            add("shrimps");
-            add("cheese");
-        }};
+
 
         public BigmacBuilder roll(String roll) {
             if (kindsOfRolls.contains(roll)) {
