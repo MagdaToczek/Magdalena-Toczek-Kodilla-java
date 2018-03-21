@@ -3,85 +3,79 @@ package com.kodilla.patterns.factory.tasks;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class TaskFactoryTestSuite {
+public class TaskFactoryTestSuite extends AbstractTask {
     @Test
     public void testShoppingTask() {
         //Given
-        TaskFactory factory = new TaskFactory();
-
-        //When
-        Task shoppingTask = factory.createTask(TaskFactory.SHOPPING);
+        TaskFactoryTestSuite test = new TaskFactoryTestSuite();
+        Task testTask = test.createTask("SHOPPING");
 
         //Then
-        Assert.assertEquals("Shopping lingerie", shoppingTask.getTaskName());
-        Assert.assertFalse(shoppingTask.isTaskExecuted());
+        Assert.assertEquals("Shopping lingerie", testTask.getTaskName());
+        Assert.assertFalse(testTask.isTaskExecuted());
     }
 
     @Test
     public void testExecutedShoppingTask() {
         //Given
-        TaskFactory factory = new TaskFactory();
+        TaskFactoryTestSuite test = new TaskFactoryTestSuite();
+        Task testTask = test.createTask("SHOPPING");
 
         //When
-        Task shoppingTask = factory.createTask(TaskFactory.SHOPPING);
-        shoppingTask.executeTask();
+        testTask.executeTask();
 
         //Then
-        Assert.assertEquals("Shopping lingerie", shoppingTask.getTaskName());
-        Assert.assertTrue(shoppingTask.isTaskExecuted());
+        Assert.assertEquals("Shopping lingerie", testTask.getTaskName());
+        Assert.assertTrue(testTask.isTaskExecuted());
     }
 
     @Test
     public void testPaintingTask() {
         //Given
-        TaskFactory factory = new TaskFactory();
-
-        //When
-        Task paintingTask = factory.createTask(TaskFactory.PAINTING);
+        TaskFactoryTestSuite test = new TaskFactoryTestSuite();
+        Task testTask = test.createTask("PAINTING");
 
         //Then
-        Assert.assertEquals("Painting", paintingTask.getTaskName());
-        Assert.assertFalse(paintingTask.isTaskExecuted());
+        Assert.assertEquals("Painting", testTask.getTaskName());
+        Assert.assertFalse(testTask.isTaskExecuted());
     }
 
     @Test
     public void testExecutedPaintingTask() {
         //Given
-        TaskFactory factory = new TaskFactory();
+        TaskFactoryTestSuite test = new TaskFactoryTestSuite();
+        Task testTask = test.createTask("PAINTING");
 
         //When
-        Task paintingTask = factory.createTask(TaskFactory.PAINTING);
-        paintingTask.executeTask();
+        testTask.executeTask();
 
         //Then
-        Assert.assertEquals("Painting", paintingTask.getTaskName());
-        Assert.assertTrue(paintingTask.isTaskExecuted());
+        Assert.assertEquals("Painting", testTask.getTaskName());
+        Assert.assertTrue(testTask.isTaskExecuted());
     }
 
     @Test
     public void testDrivingTask() {
         //Given
-        TaskFactory factory = new TaskFactory();
-
-        //When
-        Task drivingTask = factory.createTask(TaskFactory.DRIVING);
+        TaskFactoryTestSuite test = new TaskFactoryTestSuite();
+        Task testTask = test.createTask("DRIVING");
 
         //Then
-        Assert.assertEquals("Driving", drivingTask.getTaskName());
-        Assert.assertFalse(drivingTask.isTaskExecuted());
+        Assert.assertEquals("Driving", testTask.getTaskName());
+        Assert.assertFalse(testTask.isTaskExecuted());
     }
 
     @Test
     public void testExecutedDrivingTask() {
         //Given
-        TaskFactory factory = new TaskFactory();
+        TaskFactoryTestSuite test = new TaskFactoryTestSuite();
+        Task testTask = test.createTask("DRIVING");
 
         //When
-        Task drivingTask = factory.createTask(TaskFactory.DRIVING);
-        drivingTask.executeTask();
+        testTask.executeTask();
 
         //Then
-        Assert.assertEquals("Driving", drivingTask.getTaskName());
-        Assert.assertTrue(drivingTask.isTaskExecuted());
+        Assert.assertEquals("Driving", testTask.getTaskName());
+        Assert.assertTrue(testTask.isTaskExecuted());
     }
 }
