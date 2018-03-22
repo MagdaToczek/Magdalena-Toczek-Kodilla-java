@@ -4,7 +4,6 @@ public final class ShoppingTask extends AbstractTask {
     private final String taskName;
     private final String whatToBuy;
     private final double quantity;
-    private boolean isExecuted;
 
     public ShoppingTask(final String taskName, final String whatToBuy, final double quantity) {
         this.taskName = taskName;
