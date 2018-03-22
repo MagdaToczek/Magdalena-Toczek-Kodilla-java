@@ -1,6 +1,6 @@
 package com.kodilla.patterns.factory.tasks;
 
-public final class DrivingTask implements Task {
+public final class DrivingTask extends AbstractTask {
     private final String taskName;
     private final String where;
     private final String using;
@@ -13,17 +13,7 @@ public final class DrivingTask implements Task {
     }
 
     @Override
-    public void executeTask() {
-        isExecuted = true;
-    }
-
-    @Override
     public String getTaskName() {
         return taskName;
-    }
-
-    @Override
-    public boolean isTaskExecuted() {
-        return isExecuted;
     }
 }
