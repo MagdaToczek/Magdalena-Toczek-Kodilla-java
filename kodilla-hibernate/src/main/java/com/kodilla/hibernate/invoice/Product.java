@@ -8,7 +8,6 @@
 //public class Product {
 //    private int id;
 //    private String name;
-//    private Item item;
 //
 //    public Product() {
 //    }
@@ -31,20 +30,11 @@
 //        return name;
 //    }
 //
-//    @OneToMany
-//    public Item getItem() {
-//        return item;
-//    }
-//
 //    private void setId(int id) {
 //        this.id = id;
 //    }
 //
 //    private void setName(String name) {
 //        this.name = name;
-//    }
-//
-//    public void setItem(Item item) {
-//        this.item = item;
 //    }
 //}
