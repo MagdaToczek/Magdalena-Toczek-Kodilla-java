@@ -10,8 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.Arrays;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -32,15 +30,17 @@ public class InvoiceDaoTestSuite {
         item1.setProduct(product1);
         item2.setProduct(product2);
         item3.setProduct(product3);
-//        product1.setItems(new ArrayList<>(Arrays.asList(item1)));
-//        product2.setItems(new ArrayList<>(Arrays.asList(item2)));
-//        product3.setItems(new ArrayList<>(Arrays.asList(item3)));
+        product1.getItems().add(item1);
+        product2.getItems().add(item2);
+        product3.getItems().add(item3);
 
         Invoice invoice = new Invoice("001/2018");
         invoice.getItems().add(item1);
         invoice.getItems().add(item2);
         invoice.getItems().add(item3);
-//        invoice.setItems(new ArrayList<>(Arrays.asList(item1, item2, item3)));
+        item1.setInvoice(invoice);
+        item2.setInvoice(invoice);
+        item3.setInvoice(invoice);
 
         //When
         invoiceDao.save(invoice);
@@ -50,6 +50,6 @@ public class InvoiceDaoTestSuite {
         Assert.assertNotEquals(0, id);
 
         //CleanUp
-        //invoiceDao.delete(id);
+        invoiceDao.delete(id);
     }
 }

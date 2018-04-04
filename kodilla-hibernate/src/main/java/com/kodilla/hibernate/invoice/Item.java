@@ -9,9 +9,9 @@ import java.math.BigDecimal;
 public class Item {
     private int id;
     private Product product;
-    private BigDecimal price;
+    private BigDecimal price = BigDecimal.ZERO;
     private int quantity;
-    private BigDecimal value;
+    private BigDecimal value = BigDecimal.ZERO;
     private Invoice invoice;
 
     public Item() {
@@ -31,7 +31,9 @@ public class Item {
         return id;
     }
 
-    @ManyToOne
+    @ManyToOne(
+            cascade = CascadeType.ALL
+    )
     @JoinColumn(name = "PRODUCT_ID")
     public Product getProduct() {
         return product;
@@ -55,7 +57,9 @@ public class Item {
         return value;
     }
 
-    @ManyToOne
+    @ManyToOne(
+            cascade = CascadeType.ALL
+    )
     @JoinColumn(name = "INVOICE_ID")
     public Invoice getInvoice() {
         return invoice;
