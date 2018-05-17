@@ -4,12 +4,17 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
-
-@NamedNativeQuery(
+@NamedNativeQueries({
+        @NamedNativeQuery(
         name = "Company.retrieveCompanyByFirstLetters",
         query = "SELECT * FROM COMPANIES WHERE SUBSTRING(COMPANY_NAME, 1, 3) = :FIND_COMPANY",
         resultClass = Company.class
-)
+        ),
+        @NamedNativeQuery(
+                name = "Company.retrieveCompanyByAnyPartOfName",
+                query = "SELECT * FROM COMPANIES WHERE COMPANY_NAME LIKE CONCAT('%', :ARG, '%')",
+                resultClass = Company.class
+        )})
 @Entity
 @Table(name = "COMPANIES")
 public class Company {
