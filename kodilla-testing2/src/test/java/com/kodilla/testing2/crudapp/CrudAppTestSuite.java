@@ -29,7 +29,7 @@ public class CrudAppTestSuite {
 
     @After
     public void cleanUpAfterTest() {
-        driver.close();
+        driver.quit();
     }
 
     private void deleteCrudAppTestTask(String taskName) throws InterruptedException {
@@ -103,7 +103,7 @@ public class CrudAppTestSuite {
                 .filter(aHref -> aHref.findElements(By.xpath(".//span[@title=\"Kodilla Application\"]")).size() > 0)
                 .forEach(aHref -> aHref.click());
 
-        Thread.sleep(50000);
+        Thread.sleep(5000);
         while (true) {
             breakIt = true;
             try {
