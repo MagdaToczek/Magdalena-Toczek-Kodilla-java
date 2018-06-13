@@ -82,7 +82,10 @@ public class CrudAppTestSuite {
                     WebElement buttonCreateCard = theForm.findElement(By.xpath(".//button[contains(@class, \"card-creation\")]"));
                     buttonCreateCard.click();
                 });
+
         Thread.sleep(5000);
+        driver.switchTo().alert().accept();
+        driver.close();
     }
 
     private boolean checkTaskExistsInTrello(String taskName) throws InterruptedException {
@@ -121,7 +124,9 @@ public class CrudAppTestSuite {
                 break;
             }
         }
+
         driverTrello.close();
+
         return result;
     }
 
